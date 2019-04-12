@@ -44,6 +44,7 @@ public class MessageBus {
 
 	private static Properties initKafkaProperties() {
 		Properties props = new Properties();
+		System.out.println("kafka server : "+System.getenv(BOOTSTRAP_SERVER_ENV));
 		props.put("bootstrap.servers", System.getenv(BOOTSTRAP_SERVER_ENV));
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
