@@ -17,7 +17,7 @@ import java.util.*;
 public class MessageBus {
 	private static final String OUTPUT_ENV_PREFIX = "OUTPUT_";
 	private static final String INPUT_ENV_PREFIX = "INPUT_";
-	private static final String BOOTSTRAP_SERVER_ENV = "bootstrap.servers";
+	private static final String BOOTSTRAP_SERVER_ENV = "BOOTSTRAP_SERVER_ENV";
 	private static final String INPUT_TOPIC_SEPARATOR = ",";
 	private static final long POLL_TIMEOUT = 1000;
 
