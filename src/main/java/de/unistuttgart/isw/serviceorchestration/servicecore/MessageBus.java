@@ -8,6 +8,8 @@ import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.apache.kafka.common.serialization.ByteArraySerializer;
 import org.apache.kafka.common.serialization.IntegerDeserializer;
 import org.apache.kafka.common.serialization.IntegerSerializer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
@@ -15,6 +17,7 @@ import java.util.*;
  * Provides access to the input and output ports
  */
 public class MessageBus {
+	private static final Logger logger = LogManager.getLogger("MessageBus");
 	private static final String OUTPUT_ENV_PREFIX = "OUTPUT_";
 	private static final String INPUT_ENV_PREFIX = "INPUT_";
 	private static final String BOOTSTRAP_SERVER_ENV = "BOOTSTRAP_SERVER_ENV";
@@ -44,7 +47,7 @@ public class MessageBus {
 
 	private static Properties initKafkaProperties() {
 		Properties props = new Properties();
-		System.out.println("kafka server : "+System.getenv(BOOTSTRAP_SERVER_ENV));
+		logger.info("kafka server : "+System.getenv(BOOTSTRAP_SERVER_ENV));
 		props.put("bootstrap.servers", System.getenv(BOOTSTRAP_SERVER_ENV));
 		props.put("enable.auto.commit", "true");
 		props.put("auto.commit.interval.ms", "1000");
